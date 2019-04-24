@@ -53,24 +53,42 @@ class App extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(event.target.name);
-    this.setState({
-      ...this.state.todoItems,
-      todoItem: {
-        task: event.target.value,
-        id: Date.now(),
-        completed: false
-      }
-    });
-    const todoItemsArr = this.state.todoItems.slice();
-    todoItemsArr.push(this.state.todoItem);
-    this.setState({
-      todoItems: todoItemsArr,
-      todoItem: {
-        task: "",
-        id: Date.now(),
-        completed: false
-      }
-    });
+    if (event.target.name === "add") {
+      console.log("--------within add -----------");
+      this.setState({
+        ...this.state.todoItems,
+        todoItem: {
+          task: event.target.value,
+          id: Date.now(),
+          completed: false
+        }
+      });
+      const todoItemsArr = this.state.todoItems.slice();
+      todoItemsArr.push(this.state.todoItem);
+      this.setState({
+        todoItems: todoItemsArr,
+        todoItem: {
+          task: "",
+          id: Date.now(),
+          completed: false
+        }
+      });
+    } else if (event.target.name === "clear") {
+      console.log("--------within clear -----------");
+      this.setState(prevState => {
+        const incompleteTodos = prevState.todoItems.filter(todo => {
+          return todo.completed === false;
+        });
+        return {
+          todoItems: incompleteTodos,
+          todoItem: {
+            task: "",
+            id: Date.now(),
+            completed: false
+          }
+        };
+      });
+    }
   };
 
   renderTodoForm() {
