@@ -19,6 +19,9 @@ function TodoForm(props) {
         <button type="submit" className="addItemBtn" onClick={props.onClick}>
           Add an item
         </button>
+        <button type="submit" className="addItemBtn" onClick={props.onClick}>
+          Clear Completed
+        </button>
       </form>
     </div>
   );
