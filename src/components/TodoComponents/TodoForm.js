@@ -16,10 +16,20 @@ function TodoForm(props) {
           size="100"
           className="inputTodoDesc"
         />
-        <button type="submit" className="addItemBtn" onClick={props.onClick}>
+        <button
+          type="submit"
+          className="addItemBtn"
+          name={props.addBtnName}
+          onClick={props.onClick}
+        >
           Add an item
         </button>
-        <button type="submit" className="addItemBtn" onClick={props.onClick}>
+        <button
+          type="submit"
+          className="addItemBtn"
+          name={props.clearBtnName}
+          onClick={props.onClick}
+        >
           Clear Completed
         </button>
       </form>
