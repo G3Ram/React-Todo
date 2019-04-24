@@ -5,8 +5,9 @@ import Todo from "./Todo";
 
 function TodoList(props) {
   console.log("-------in Todo List --------" + props.todoList.length);
+
   return (
-    <div>
+    <div className="todo-List">
       {props.todoList.map(todoItem => (
         <Todo key={todoItem.id} todo={todoItem} />
       ))}

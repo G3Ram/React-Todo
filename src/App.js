@@ -5,24 +5,23 @@ import TodoList from "./components/TodoComponents/TodoList";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    let count = 0;
     this.state = {
       todoItems: [],
       todoItem: {
-        todoItemDescription: "",
-        id: "",
+        task: "",
+        id: Date.now(),
         completed: false
       }
     };
   }
 
   handleChange = event => {
-    console.log("Invoking handle change");
+    console.log(event.target.value);
     this.setState({
       ...this.state.todoItems,
       todoItem: {
-        todoItemDescription: event.target.value,
-        id: "",
+        task: event.target.value,
+        id: Date.now(),
         completed: false
       }
     });
@@ -30,44 +29,31 @@ class App extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.count++;
-    console.log("Invoking handle submit");
+    console.log(event.target.value);
     this.setState({
       ...this.state.todoItems,
       todoItem: {
-        todoItemDescription: event.target.value,
-        id: this.count,
+        task: event.target.value,
+        id: Date.now(),
         completed: false
       }
     });
     const todoItemsArr = this.state.todoItems.slice();
     todoItemsArr.push(this.state.todoItem);
-    console.log(
-      "--------------->>------- todoItem is " +
-        this.state.todoItem.todoItemDescription
-    );
-    console.log(
-      "--------------->>------- todoItem is " + this.state.todoItem.id
-    );
-    console.log(
-      "--------------->>------- todoItem is " + this.state.todoItem.completed
-    );
-    console.log("--------------->>------- todoItem is " + todoItemsArr.length);
     this.setState({
       todoItems: todoItemsArr,
       todoItem: {
-        todoItemDescription: "",
-        id: "",
+        task: "",
+        id: Date.now(),
         completed: false
       }
     });
-    console.log("-------------------------->" + this.state.todoItems.length);
   };
 
   renderTodoForm() {
     return (
       <TodoForm
-        value={this.state.todoItem.todoDescription}
+        value={this.state.todoItem.task}
         onChange={this.handleChange}
         onSubmit={this.handleSubmit}
         onClick={this.handleSubmit}
@@ -81,8 +67,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to my Todo App!</h2>
-        <TodoList todoList={this.state.todoItems} />
+        <div className="todoApp">
+          <h2>Welcome to my Todo App!</h2>
+          <TodoList todoList={this.state.todoItems} />
+        </div>
         {this.renderTodoForm()}
       </div>
     );
