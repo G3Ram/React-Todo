@@ -1,0 +1,41 @@
+.inputTodoDesc {
+  width: 350px;
+  height: 25px;
+  background-color: white;
+}
+
+.addItemBtn {
+  height: 30px;
+  border-radius: 6px;
+  margin-left: 20px;
+  background-color: brown;
+  color: white;
+  box-shadow: 0px 2px 0px lightgray;
+}
+.addItemBtn:focus {
+  outline: 0;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+input[type="checkbox"]:focus {
+  outline: 0;
+}
+
+input[type="text"]:focus {
+  outline: 0;
+}
+
+.todo {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.todoForm {
+  margin-top: 40px;
+  text-align: center;
+}
