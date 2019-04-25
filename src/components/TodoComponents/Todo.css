@@ -1,12 +1,16 @@
 .inputTodoDesc {
   width: 350px;
   height: 25px;
+  background-color: white;
 }
 
 .addItemBtn {
-  height: 28px;
-  border-radius: 3px;
+  height: 30px;
+  border-radius: 6px;
   margin-left: 20px;
+  background-color: brown;
+  color: white;
+  box-shadow: 0px 2px 0px lightgray;
 }
 
 input[type="checkbox"] {
@@ -16,6 +20,7 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:focus {
   outline: 0;
+  background-color: brown;
 }
 
 input[type="text"]:focus {

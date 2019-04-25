@@ -19,7 +19,6 @@ class App extends React.Component {
   }
 
   handleChange = event => {
-    console.log("================" + event.target.name);
     this.setState({
       ...this.state.todoItems,
       todoItem: {
@@ -31,7 +30,6 @@ class App extends React.Component {
   };
 
   handleCheckBoxChange(id) {
-    console.log("Handling checkbox change" + id);
     this.setState(prevState => {
       const updatedTodos = prevState.todoItems.map(todo => {
         if (todo.id === id) {
@@ -52,9 +50,7 @@ class App extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(event.target.name);
     if (event.target.name === "add") {
-      console.log("--------within add -----------");
       this.setState({
         ...this.state.todoItems,
         todoItem: {
@@ -74,7 +70,6 @@ class App extends React.Component {
         }
       });
     } else if (event.target.name === "clear") {
-      console.log("--------within clear -----------");
       this.setState(prevState => {
         const incompleteTodos = prevState.todoItems.filter(todo => {
           return todo.completed === false;
@@ -111,7 +106,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="todoApp">
-          <h2>Welcome to my Todo App!</h2>
+          <h2>Welcome to my To-do App!</h2>
           <TodoList
             todoList={this.state.todoItems}
             handleChange={this.handleCheckBoxChange}

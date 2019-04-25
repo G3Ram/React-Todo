@@ -1,4 +1,5 @@
 import React from "react";
+import "./Todo.css";
 
 function Todo(props) {
   const completedStyle = {
@@ -6,8 +7,15 @@ function Todo(props) {
     color: "#cdcdcd",
     textDecoration: "line-through"
   };
+
+  const displayNone = {
+    display: "none"
+  };
   return (
-    <div className="todo todo-item">
+    <div
+      className="todo todo-item"
+      style={props.todo.task === "" ? displayNone : null}
+    >
       <input
         type="checkbox"
         checked={props.todo.completed}

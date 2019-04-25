@@ -2,10 +2,9 @@
 // feel free to change this component.js into TodoList.js
 import React from "react";
 import Todo from "./Todo";
+import "./Todo";
 
 function TodoList(props) {
-  console.log("-------in Todo List --------" + props.todoList.length);
-
   return (
     <div className="todo-List">
       {props.todoList.map(todoItem => (

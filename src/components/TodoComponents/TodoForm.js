@@ -2,7 +2,6 @@ import React from "react";
 import "./Todo.css";
 
 function TodoForm(props) {
-  console.log("------------in Todo Form -------------" + props);
   return (
     <div className="todoForm">
       <form onSubmit={props.onSubmit}>
